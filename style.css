@@ -1,28 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
 * {
   box-sizing: border-box;
 }
+
 body {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: #00ff08;
+  font-family: "Muli", sans-serif;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   margin: 0;
 }
-.bg {
-  background: url("pexels-francesco-ungaro-1525041.jpg");
-  background-size: 160%;
-  background-position:center;
-  position: absolute;
-  top: -30px;
-  left: -30px;
-  width: calc(100vw + 60px); /*vw-- view port*/
-  height: calc(100vh + 60px);
-  z-index: -1;
-  filter: blur(30px);
+
+h3 {
+  color: #fff;
+  margin: 10px 0 20px;
+  text-align: center;
 }
-.loading-text {
-  font-size: 50%;
-  color: white;
+
+.container {
+  width: 500px;
+}
+
+textarea {
+  border: none;
+  display: block;
+  width: 100%;
+  height: 100px;
+  font-family: inherit;
+  padding: 10px;
+  margin: 0 0 20px;
+  font-size: 16px;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.tag {
+  background-color: #f0932b;
+  color: #fff;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin: 0 5px 10px 0;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.tag.highlight {
+  background-color: #273c75;
 }
