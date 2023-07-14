@@ -3,17 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Random Choice Picker</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Verical Slider</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <body>
-        <div class="container">
-          <h3>Enter all of the choices divided by a comma (','). <br> Press enter when you're done</h3>
-          <textarea placeholder="Enter choices here..." id="textarea"></textarea>
-    
-          <div id="tags"></div>
+    <div class="slider-container">
+      <div class="left-slide">
+        <div style="background-color: #fd3555">
+          <h1>Buggati</h1>
+          <p>Hybridized 6.5-liter V-12 powertrain</p>
         </div>
+        <div style="background-color: #2a86ba">
+          <h1>Lamborghini</h1>
+          <p>V12 engine</p>
+        </div>
+        <div style="background-color: #252e33">
+          <h1>BMW</h1>
+          <p>V6 inline-six (straight-six)</p>
+        </div>
+        <div style="background-color: #ffb866">
+          <h1>Mercedes</h1>
+          <p>143 cc, 4 Cylinders Inline, 4 Valves/Cylin</p>
+        </div>
+      </div>
+      <div class="right-slide">
+        <div
+          style="
+            background-image: url('https://images.pexels.com/photos/17590508/pexels-photo-17590508/free-photo-of-mercedes-benz-gts.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+          "
+        ></div>
+        <div
+          style="
+            background-image: url('https://images.wallpaperscraft.com/image/single/bmw_car_bumper_191131_3840x2400.jpg');
+          "
+        ></div>
+        <div
+          style="
+            background-image: url('http://m.gettywallpapers.com/wp-content/uploads/2022/01/Computer-Wallpaper-4k-Cars.jpg');
+          "
+        ></div>
+        <div
+          style="
+            background-image: url('http://m.gettywallpapers.com/wp-content/uploads/2022/01/Cars-4k-Wallpaper.jpg');
+          "
+        ></div>
+      </div>
+      <div class="action-buttons">
+        <button class="down-button">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+        <button class="up-button">
+          <i class="fas fa-arrow-up"></i>
+        </button>
+      </div>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>

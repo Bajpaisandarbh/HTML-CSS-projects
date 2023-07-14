@@ -1,69 +1,31 @@
-const tagsEl = document.getElementById('tags')
-const textarea = document.getElementById('textarea')
+const sliderContainer = document.querySelector('.slider-container')
+const slideRight = document.querySelector('.right-slide')
+const slideLeft = document.querySelector('.left-slide')
+const upButton = document.querySelector('.up-button')
+const downButton = document.querySelector('.down-button')
+const slidesLength = slideRight.querySelectorAll('div').length
 
-textarea.focus()
+let activeSlideIndex = 0
 
-textarea.addEventListener('keyup', (e) => {
-    createTags(e.target.value)
+slideLeft.style.top = `-${(slidesLength - 1) * 100}vh`
 
-    if(e.key === 'Enter') {
-        setTimeout(() => {
-            e.target.value = ''
-        }, 10)
+upButton.addEventListener('click', () => changeSlide('up'))
+downButton.addEventListener('click', () => changeSlide('down'))
 
-        randomSelect()
+const changeSlide = (direction) => {
+    const sliderHeight = sliderContainer.clientHeight
+    if(direction === 'up') {
+        activeSlideIndex++
+        if(activeSlideIndex > slidesLength - 1) {
+            activeSlideIndex = 0
+        }
+    } else if(direction === 'down') {
+        activeSlideIndex--
+        if(activeSlideIndex < 0) {
+            activeSlideIndex = slidesLength - 1
+        }
     }
-})
 
-function createTags(input) {
-    const tags = input.split(',').filter(tag => tag.trim() !== '').map(tag => tag.trim())
-    
-    tagsEl.innerHTML = ''
-
-    tags.forEach(tag => {
-        const tagEl = document.createElement('span')
-        tagEl.classList.add('tag')
-        tagEl.innerText = tag
-        tagsEl.appendChild(tagEl)
-    })
-}
-
-function randomSelect() {
-    const times = 30
-
-    const interval = setInterval(() => {
-        const randomTag = pickRandomTag()
-	
-	if (randomTag !== undefined) {
-        highlightTag(randomTag)
-
-        setTimeout(() => {
-            unHighlightTag(randomTag)
-        }, 100)
-	}
-    }, 100);
-
-    setTimeout(() => {
-        clearInterval(interval)
-
-        setTimeout(() => {
-            const randomTag = pickRandomTag()
-
-            highlightTag(randomTag)
-        }, 100)
-
-    }, times * 100)
-}
-
-function pickRandomTag() {
-    const tags = document.querySelectorAll('.tag')
-    return tags[Math.floor(Math.random() * tags.length)]
-}
-
-function highlightTag(tag) {
-    tag.classList.add('highlight')
-}
-
-function unHighlightTag(tag) {
-    tag.classList.remove('highlight')
+    slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`
+    slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`
 }
